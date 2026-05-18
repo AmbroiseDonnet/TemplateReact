@@ -1,0 +1,17 @@
+@use './spacing' as t;
+
+/* ==========================================
+     LAYOUT — ratio nombre d'or 38.2% / 61.8%
+     ========================================== */
+
+    $container-sm: 640px;
+    $container-md: 768px;
+    $container-lg: 1024px;
+    $container-xl: 1280px;
+    $container-2xl: 1440px;
+
+    $layout-minor: 38.2%;
+    $layout-major: 61.8%;
+
+    $grid-cols: 12;
+    $grid-gap: var(t.$space-xl);

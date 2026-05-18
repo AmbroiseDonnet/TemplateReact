@@ -1,0 +1,461 @@
+@use '../tokens' as t;
+
+/* ============================================================
+   BASE.CSS — Design System Ambroise
+   Reset + styles de base appliquant les tokens du DS
+   À charger après tokens.css (ou après le :root qui les définit
+   ============================================================ */
+
+/* ── 1. BOX MODEL & RESET UNIVERSEL ──────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── 2. DOCUMENT ──────────────────────────────────────────── */
+
+html {
+  font-size: t.$text-base;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  tab-size: 2;
+}
+
+body {
+  background-color: t.$color-bg-base;
+  color: t.$color-text-primary;
+  font-family: t.$font-body;
+  font-weight: t.$weight-regular;
+  line-height: t.$leading-normal;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── 3. TYPOGRAPHIE — TITRES ──────────────────────────────── */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: t.$font-display;
+  font-weight: t.$weight-bold;
+  line-height: t.$leading-tight;
+  letter-spacing: t.$tracking-wide;
+  text-transform: uppercase;
+  color: t.$color-text-primary;
+  &.centerTitle {
+    text-align: center;
+  }
+}
+
+h1 {
+  font-size: t.$text-2xl;
+  font-weight: t.$weight-black;
+  letter-spacing: t.$tracking-widest;
+}
+
+h2 {
+  font-size: t.$text-xl;
+  font-weight: t.$weight-black;
+  letter-spacing: t.$tracking-widest;
+}
+
+h3 {
+  font-size: t.$text-lg;
+  font-weight: t.$weight-bold;
+  letter-spacing: t.$tracking-wide;
+}
+
+h4 {
+  font-size: t.$text-base;
+  font-weight: t.$weight-bold;
+  letter-spacing: t.$tracking-wide;
+}
+
+h5,
+h6 {
+  font-size: t.$text-sm;
+  font-weight: t.$weight-bold;
+  letter-spacing: t.$tracking-widest;
+}
+
+/* ── 4. TYPOGRAPHIE — CORPS ───────────────────────────────── */
+
+p {
+  font-family: t.$font-body;
+  font-size: t.$text-base;
+  line-height: t.$leading-normal;
+  color: t.$color-text-primary;
+}
+
+strong,
+b {
+  font-weight: t.$weight-bold;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+small {
+  font-size: t.$text-sm;
+  color: t.$color-text-secondary;
+}
+
+mark {
+  background-color: t.$color-orange-200;
+  color: t.$color-stone-900;
+  padding: 0 t.$space-xs;
+  border-radius: t.$radius-xs;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted t.$color-border;
+  cursor: help;
+  text-decoration: none;
+}
+
+blockquote {
+  border-left: 2px solid t.$color-accent;
+  padding-left: t.$space-xl;
+  margin-left: 0;
+  color: t.$color-text-secondary;
+  font-family: t.$font-body;
+  font-style: italic;
+  line-height: t.$leading-loose;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid t.$color-border-subtle;
+  margin: t.$space-2xl 0;
+}
+
+/* ── 5. LIENS ─────────────────────────────────────────────── */
+
+a {
+  color: t.$color-text-accent;
+  text-decoration: none;
+  transition: color t.$transition-base;
+}
+
+a:hover {
+  color: t.$color-accent-hover;
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid t.$color-accent;
+  outline-offset: 2px;
+  border-radius: t.$radius-xs;
+}
+
+/* ── 6. LISTES ────────────────────────────────────────────── */
+
+ul,
+ol {
+  padding-left: t.$space-2xl;
+  color: t.$color-text-primary;
+}
+
+ul {
+  list-style-type: square;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  line-height: t.$leading-normal;
+  padding-left: t.$space-sm;
+}
+
+li + li {
+  margin-top: t.$space-sm;
+}
+
+dl {
+  font-family: t.$font-body;
+}
+
+dt {
+  font-family: t.$font-mono;
+  font-size: t.$text-sm;
+  font-weight: t.$weight-medium;
+  letter-spacing: t.$tracking-wide;
+  text-transform: uppercase;
+  color: t.$color-text-secondary;
+  margin-top: t.$space-lg;
+}
+
+dd {
+  color: t.$color-text-primary;
+  padding-left: t.$space-xl;
+  margin-top: t.$space-xs;
+}
+
+/* ── 7. CODE & TECHNIQUE ──────────────────────────────────── */
+
+code {
+  font-family: t.$font-mono;
+  font-size: t.$text-sm;
+  background-color: t.$color-bg-surface;
+  color: t.$color-text-accent;
+  border: 1px solid t.$color-border-subtle;
+  border-radius: t.$radius-xs;
+  padding: 1px t.$space-sm;
+}
+
+pre {
+  font-family: t.$font-mono;
+  font-size: t.$text-sm;
+  background-color: t.$color-bg-surface;
+  border: 1px solid t.$color-border-subtle;
+  border-radius: t.$radius-md;
+  padding: t.$space-xl;
+  overflow-x: auto;
+  line-height: t.$leading-snug;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  color: t.$color-text-primary;
+}
+
+kbd {
+  font-family: t.$font-mono;
+  font-size: t.$text-sm;
+  background-color: t.$color-bg-elevated;
+  border: 1px solid t.$color-border;
+  border-radius: t.$radius-xs;
+  padding: 1px t.$space-sm;
+  color: t.$color-text-primary;
+  box-shadow: t.$shadow-sm;
+}
+
+samp,
+var {
+  font-family: t.$font-mono;
+  font-style: normal;
+  color: t.$color-text-accent;
+}
+
+/* ── 8. FORMULAIRES ───────────────────────────────────────── */
+
+input,
+textarea,
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: t.$color-bg-surface;
+  border: 1px solid t.$color-border;
+  border-radius: t.$radius-xs;
+  color: t.$color-text-primary;
+  font-family: t.$font-body;
+  font-size: t.$text-base;
+  padding: t.$space-md t.$space-lg;
+  width: 100%;
+  transition: border-color t.$transition-base, box-shadow t.$transition-base;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: t.$color-accent;
+  box-shadow: 0 0 0 2px rgba(219, 97, 10, 0.2);
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+::placeholder {
+  color: t.$color-text-muted;
+  opacity: 1;
+}
+
+label {
+  display: block;
+  font-family: t.$font-display;
+  font-size: t.$text-sm;
+  font-weight: t.$weight-bold;
+  letter-spacing: t.$tracking-wide;
+  text-transform: uppercase;
+  color: t.$color-text-secondary;
+  margin-bottom: t.$space-sm;
+}
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  font-family: t.$font-display;
+  font-weight: t.$weight-bold;
+  font-size: t.$text-base;
+  letter-spacing: t.$tracking-widest;
+  text-transform: uppercase;
+  background-color: t.$color-accent;
+  color: t.$color-text-inverse;
+  border: none;
+  border-radius: t.$radius-xs;
+  padding: t.$space-md t.$space-xl;
+  transition: all t.$transition-base;
+  line-height: 1;
+}
+
+button:hover {
+  background-color: t.$color-accent-hover;
+  box-shadow: t.$shadow-accent;
+  transform: translateY(-1px);
+}
+
+button:focus-visible {
+  outline: 2px solid t.$color-accent;
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+fieldset {
+  border: 1px solid t.$color-border-subtle;
+  border-radius: t.$radius-md;
+  padding: t.$space-xl;
+}
+
+legend {
+  font-family: t.$font-display;
+  font-size: t.$text-sm;
+  font-weight: t.$weight-bold;
+  letter-spacing: t.$tracking-wide;
+  text-transform: uppercase;
+  color: t.$color-text-secondary;
+  padding: 0 t.$space-sm;
+}
+
+/* ── 9. TABLEAUX ──────────────────────────────────────────── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: t.$font-body;
+  font-size: t.$text-base;
+}
+
+th {
+  font-family: t.$font-display;
+  font-size: t.$text-sm;
+  font-weight: t.$weight-bold;
+  letter-spacing: t.$tracking-widest;
+  text-transform: uppercase;
+  color: t.$color-text-secondary;
+  border-bottom: 1px solid t.$color-border;
+  padding: t.$space-md t.$space-lg;
+  text-align: left;
+}
+
+td {
+  color: t.$color-text-primary;
+  border-bottom: 1px solid t.$color-border-subtle;
+  padding: t.$space-md t.$space-lg;
+  vertical-align: top;
+}
+
+tr:hover td {
+  background-color: t.$color-bg-elevated;
+}
+
+/* ── 10. MÉDIAS ───────────────────────────────────────────── */
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-family: t.$font-mono;
+  font-size: t.$text-sm;
+  color: t.$color-text-muted;
+  margin-top: t.$space-sm;
+}
+
+/* ── 11. UTILITAIRES NATIFS ───────────────────────────────── */
+
+details {
+  border: 1px solid t.$color-border-subtle;
+  border-radius: t.$radius-md;
+  padding: t.$space-lg t.$space-xl;
+}
+
+summary {
+  font-family: t.$font-display;
+  font-size: t.$text-base;
+  font-weight: t.$weight-bold;
+  letter-spacing: t.$tracking-wide;
+  text-transform: uppercase;
+  color: t.$color-text-primary;
+  cursor: pointer;
+  list-style: none;
+  transition: color t.$transition-fast;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:hover {
+  color: t.$color-text-accent;
+}
+
+details[open] summary {
+  color: t.$color-text-accent;
+  margin-bottom: t.$space-lg;
+}
+
+dialog {
+  background-color: t.$color-bg-elevated;
+  border: 1px solid t.$color-border;
+  border-radius: t.$radius-md;
+  box-shadow: t.$shadow-lg;
+  color: t.$color-text-primary;
+  padding: t.$space-2xl;
+  max-width: 90vw;
+}
+
+dialog::backdrop {
+  background-color: t.$color-bg-overlay;
+}
+
+/* ── 12. SÉLECTION ────────────────────────────────────────── */
+
+::selection {
+  background-color: t.$color-orange-600;
+  color: t.$color-stone-50;
+}
