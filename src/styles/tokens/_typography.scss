@@ -1,0 +1,46 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;900&family=IBM+Plex+Mono:wght@400;500&family=Barlow:wght@400;500&display=swap");
+
+/* ==========================================
+     TYPOGRAPHIE
+     Échelle nombre d'or — base 16px × φ 1.618
+     2 tailles en dessous, 4 au dessus
+
+     φ⁻² =   6px  → xs
+     φ⁻¹ =  10px  → sm
+     φ⁰  =  16px  → base
+     φ¹  =  26px  → lg
+     φ²  =  42px  → xl
+     φ³  =  68px  → 2xl
+     φ⁴  = 110px  → 3xl
+     ========================================== */
+
+    $font-display: "Barlow Condensed", sans-serif;
+    $font-body: "Barlow", sans-serif;
+    $font-mono: "IBM Plex Mono", monospace;
+
+    $text-xs: 6px;
+    $text-sm: 10px;
+    $text-base: 16px;
+    $text-lg: 25px;
+    $text-xl: 41px;
+    $text-2xl: 68px;
+
+    $weight-regular: 400;
+    $weight-medium: 500;
+    $weight-bold: 700;
+    $weight-black: 900;
+
+    //Line height
+
+    $leading-tight: 1.1;
+    $leading-snug: 1.3;
+    $leading-normal: 1.6;
+    $leading-loose: 1.8;
+
+    // Letter spacing
+
+    $tracking-tight: -0.02em;
+    $tracking-normal: 0em;
+    $tracking-wide: 0.08em;
+    $tracking-widest: 0.2em;
